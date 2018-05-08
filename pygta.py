@@ -3,18 +3,12 @@ import numpy as np
 import pyscreenshot as ImageGrab
 import cv2
 import time
-from directkeys import PressKey,W,A,S,D
+from directkeys import ReleaseKey, PressKey,W,A,S,D
 
 
-for i in list(range(4))[::-1]:
-    print(i+1)
-    time.sleep(1)
+
     
-print('down')
-Presskey('W')
-time.sleep(3)
-print('up')
-PressKey('w')
+
 
 
 def process_img(image):
@@ -23,6 +17,10 @@ def process_img(image):
     return process_img
 
 
+for i in list(range(4))[::-1]:
+    print(i+1)
+    time.sleep(1)
+
 last_time = time.time()
 while(True):
     printscreen = np.array(ImageGrab.grab(bbox=(0,40,800,640)))#specify the location of the game window using bbox
@@ -30,7 +28,11 @@ while(True):
     new_screen = process_img(printscreen) 
     
     #printscreen_numpy = np.array(printscreen.getdata(),dtype = 'uint8').reshape((printscreen.size,printscreen.size[0],3))
-    
+    print('down')
+    Presskey(W)
+    time.sleep(3)
+    print('up')
+    PressKey(W)
     print('loop took {} seconds'.format(time.time()-last_time))
     last_time=time.time()
     cv2.imshow('window',new_screen)
