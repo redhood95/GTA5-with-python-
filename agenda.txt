@@ -1,0 +1,7 @@
+1) object detection by implementing 
+ a)yolo
+ b)ssd
+ c)Mask Rcnn
+
+2) calculating distance and crash warning 
+3) lane detection     
